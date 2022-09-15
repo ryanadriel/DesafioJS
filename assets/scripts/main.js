@@ -24,7 +24,12 @@ const pesquisarCep = async() => {
     
     const dados = await fetch(url);
     const endereco = await dados.json();
-    console.log(endereco);
+    
+    if (endereco.hasOwnProperty('erro')){
+        alert('CEP inválido')
+    }else{
+        preencherFormulario(endereco)
+    }
 }
 
 //função de clicar fora do campo para auto-preencher
