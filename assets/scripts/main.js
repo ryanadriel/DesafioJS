@@ -8,7 +8,6 @@ $(document).ready(function () {
 });
 
 // Função para preencher o formulário
-
 const preencherFormulario = (endereco) => {
     document.getElementById('endereco').value = endereco.logradouro;
     document.getElementById('bairro').value = endereco.bairro;
@@ -17,22 +16,27 @@ const preencherFormulario = (endereco) => {
 }
 
 // integração de API com o campo 'CEP'
-
 const pesquisarCep = async() => {
     const cep = document.getElementById('CEP').value;
     const url = `https://viacep.com.br/ws/${cep}/json/`;
-    
-    const dados = await fetch(url);
-    const endereco = await dados.json();
-    
-    if (endereco.hasOwnProperty('erro')){
-        alert('CEP inválido')
+
+    // Validação do CEP
+    const cepValido = (cep) => cep.length == 9;
+
+    if(cepValido(cep)){
+        const dados = await fetch(url);
+        const endereco = await dados.json();
+        
+        if (endereco.hasOwnProperty('erro')){
+            alert('CEP inválido');
+        }else{
+            preencherFormulario(endereco);
+        }
     }else{
-        preencherFormulario(endereco)
+        alert('CEP inválido');
     }
 }
 
 //função de clicar fora do campo para auto-preencher
-
 document.getElementById('CEP')
         .addEventListener('focusout', pesquisarCep);
