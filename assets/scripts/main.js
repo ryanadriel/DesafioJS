@@ -46,21 +46,23 @@ document.getElementById('CPF').addEventListener('focusout', validaCpf);
 function validaCpf() {
   var cpf = document.getElementById('CPF').value,
     cpfSoNumero = cpf.replace(/\.|-/g, ''),
-    dezPrimeirosNumeros = cpfSoNumero.substr(0, 10),
     somaDosNovePrimeirosNumeros = multiplicarNumeros(9, cpfSoNumero, 10),
-    somaDosDezPrimeirosNumeros = multiplicarNumeros(10, cpfSoNumero, 11);
-
-  var resultadoModulo1 = (somaDosNovePrimeirosNumeros * 10) % 11;
-  var resultadoModulo2 = (somaDosDezPrimeirosNumeros * 10) % 11;
+    somaDosDezPrimeirosNumeros = multiplicarNumeros(10, cpfSoNumero, 11),
+    resultadoModulo1 = obterDigitoVerificador(somaDosNovePrimeirosNumeros),
+    resultadoModulo2 = obterDigitoVerificador(somaDosDezPrimeirosNumeros);
 
   if (
-    resultadoModulo1.toString() + resultadoModulo2.toString() ===
-    cpfSoNumero.substr(9, 2)
+    resultadoModulo1 + resultadoModulo2 === cpfSoNumero.substr(9, 2)
   ) {
     return true;
   } else {
     alert('CPF inválido');
   }
+}
+
+function obterDigitoVerificador(soma) {
+    var resultado = (soma * 10) % 11;
+    return resultado.toString();
 }
 
 function multiplicarNumeros(quantidadeDeNumeros, cpfSoNumero, multiplicador) {
