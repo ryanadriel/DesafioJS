@@ -73,3 +73,7 @@ html {
 .myinput {
   width: 95% !important;
 }
+
+.hob {
+  display: flex;
+}

@@ -85,10 +85,10 @@ const hob = document.getElementById("hob");
 function addBox() {
   var div = document.createElement("div");
   
-  div.setAttribute("class","input-group mb-3");
+  div.setAttribute("class","input");
   div.setAttribute("id","box_"+counter);
 
-  textBox = '<div class="input-group mb-3"><span class="input-group-text" id="inputGroup-sizing-default">Hobby '+counter+'</span><input type="text" id="hobby_'+counter+'" name="hobby[]" class="myinput form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required /> <input type="button" class="mybox" value="-" onclick="removeBox(this)" /></div>';
+  textBox = '<div class="input"><span class="input-group-text" id="inputGroup-sizing-default">Hobby '+counter+'</span><input type="text" id="hobby_'+counter+'" name="hobby[]" class="myinput form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required /> <input type="button" class="mybox" value="-" onclick="removeBox(this)" /></div>';
   div.innerHTML = textBox;
 
   console.log(div);
@@ -100,16 +100,4 @@ function addBox() {
 
 function removeBox(ele) {
   (ele.parentNode.remove());
-}
-
-// Função pra esconder o header quando der scroll
-var prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementById("header").style.top = "0";
-  } else {
-    document.getElementById("header").style.top = "-150px";
-  }
-  prevScrollpos = currentScrollPos;
 }
