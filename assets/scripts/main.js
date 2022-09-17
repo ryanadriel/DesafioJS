@@ -1,4 +1,4 @@
-// Mascara do CEP e CPF
+// Máscara do CEP e CPF
 $(document).ready(function () {
   var $maskCpf = $('#CPF');
   $maskCpf.mask('000.000.000-00', { reverse: true });
@@ -15,7 +15,7 @@ const preencherFormulario = endereco => {
   document.getElementById('estado').value = endereco.uf;
 };
 
-// integração de API com o campo 'CEP'
+// Integração de API com o campo 'CEP'
 const pesquisarCep = async () => {
   const cep = document.getElementById('CEP').value;
   const url = `https://viacep.com.br/ws/${cep}/json/`;
@@ -77,4 +77,39 @@ function multiplicarNumeros(quantidadeDeNumeros, cpfSoNumero, multiplicador) {
   }
 
   return somaDosNumeros;
+}
+// Função pra adicionar e remover caixa de texto no input do hobby
+var counter = 1;
+var textBox = "";
+const hob = document.getElementById("hob");
+function addBox() {
+  var div = document.createElement("div");
+  
+  div.setAttribute("class","input-group mb-3");
+  div.setAttribute("id","box_"+counter);
+
+  textBox = '<div class="input-group mb-3"><span class="input-group-text" id="inputGroup-sizing-default">Hobby '+counter+'</span><input type="text" id="hobby_'+counter+'" name="hobby[]" class="myinput form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required /> <input type="button" class="mybox" value="-" onclick="removeBox(this)" /></div>';
+  div.innerHTML = textBox;
+
+  console.log(div);
+
+  hob.appendChild(div);
+
+  counter++;
+}
+
+function removeBox(ele) {
+  (ele.parentNode.remove());
+}
+
+// Função pra esconder o header quando der scroll
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("header").style.top = "0";
+  } else {
+    document.getElementById("header").style.top = "-150px";
+  }
+  prevScrollpos = currentScrollPos;
 }

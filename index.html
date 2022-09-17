@@ -19,7 +19,7 @@
     <title>DesafioJS</title>
   </head>
   <body>
-    <header class="my-header">
+    <header id="header" class="my-header">
       <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="#">
           <img src="assets/img/logo.jpeg" width="80" height="80" alt="" />
@@ -161,6 +161,23 @@
             required
           />
         </div>
+
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default"
+            >Hobby</span
+          >
+          <input
+            type="text"
+            id="hobby_0"
+            name="hobby[]"
+            class="myinput form-control"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default"
+            required
+          />
+          <input type="button" class="mybox" value="+" onclick="addBox()" />
+        </div>
+        <div id="hob"></div>
 
         <div class="form-check">
           <input

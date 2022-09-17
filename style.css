@@ -21,7 +21,7 @@ html {
 /*My styles*/
 .my-container {
   height: calc(100% - 110px);
-  margin-top: 190px;
+  margin-top: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,12 +32,13 @@ html {
   z-index: 10;
   top: 0;
   height: 110px;
-  position: fixed;
   width: 100%;
   box-shadow: 11px 7px 26px -5px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
 }
 
 .form-principal {
+  z-index: 11;
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -54,9 +55,21 @@ html {
 
 .my-footer {
   width: 100%;
+  margin-top: 150px;
   background-color: white;
   display: flex;
   align-items: center;
-  height: 200px;
+  height: 100px;
   justify-content: center;
+}
+
+.mybox {
+  float: right;
+  height: 23px;
+  width: 23px;
+  margin-top: 5px;
+}
+
+.myinput {
+  width: 95% !important;
 }
