@@ -74,6 +74,6 @@ html {
   width: 95% !important;
 }
 
-.hob {
-  display: flex;
+hob {
+  width: 100%;
 }

@@ -91,8 +91,6 @@ function addBox() {
   textBox = '<div class="input"><span class="input-group-text" id="inputGroup-sizing-default">Hobby '+counter+'</span><input type="text" id="hobby_'+counter+'" name="hobby[]" class="myinput form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required /> <input type="button" class="mybox" value="-" onclick="removeBox(this)" /></div>';
   div.innerHTML = textBox;
 
-  console.log(div);
-
   hob.appendChild(div);
 
   counter++;
