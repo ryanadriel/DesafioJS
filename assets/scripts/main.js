@@ -85,10 +85,9 @@ const hob = document.getElementById("hob");
 function addBox() {
   var div = document.createElement("div");
   
-  div.setAttribute("class","input");
   div.setAttribute("id","box_"+counter);
 
-  textBox = '<div class="input"><span class="input-group-text" id="inputGroup-sizing-default">Hobby '+counter+'</span><input type="text" id="hobby_'+counter+'" name="hobby[]" class="myinput form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required /> <input type="button" class="mybox" value="-" onclick="removeBox(this)" /></div>';
+  textBox = '<span class="input" id="input">Hobby '+counter+'</span><input type="text" id="hobby_'+counter+'" name="hobby[]" class="myinput form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required /> <input type="button" class="mybox" value="-" onclick="removeBox(this)" />';
   div.innerHTML = textBox;
 
   hob.appendChild(div);
@@ -99,3 +98,20 @@ function addBox() {
 function removeBox(ele) {
   (ele.parentNode.remove());
 }
+
+// Função para esconder o Header
+
+const header = document.getElementById('header');
+const headerClassList = header.classList;
+
+window.addEventListener('scroll', () => {
+  if(window.scrollY >= 40) {
+    if(!headerClassList.contains('scrollHide')) {
+      headerClassList.add('scrollHide')
+    }
+  }else {
+    if(headerClassList.contains('scrollHide')){
+      headerClassList.remove('scrollHide')
+    }
+  }
+})

@@ -14,7 +14,6 @@ body {
 
 body,
 html {
-  height: 100vh;
   width: 100%;
 }
 
@@ -27,18 +26,24 @@ html {
   justify-content: center;
 }
 
+#header {
+  position: fixed;
+}
+
+#header.scrollHide {
+  opacity: 0;
+}
+
 .my-header {
   background-color: white;
-  z-index: 10;
   top: 0;
   height: 110px;
   width: 100%;
   box-shadow: 11px 7px 26px -5px rgba(0, 0, 0, 0.1);
-  transition: 0.3s;
+  transition: 0.1s;
 }
 
 .form-principal {
-  z-index: 11;
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -54,8 +59,8 @@ html {
 }
 
 .my-footer {
+  margin-top: 50px;
   width: 100%;
-  margin-top: 150px;
   background-color: white;
   display: flex;
   align-items: center;
@@ -70,10 +75,26 @@ html {
   margin-top: 5px;
 }
 
-.myinput {
+.myinput,
+hob {
   width: 95% !important;
 }
 
-hob {
-  width: 100%;
+@media (max-width: 545px) {
+  .inputhobby,
+  hob {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .mybox {
+    float: left;
+    margin-top: 5px;
+  }
+
+  box_ {
+    margin-top: auto;
+  }
 }
